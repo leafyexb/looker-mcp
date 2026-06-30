@@ -1,10 +1,10 @@
 {
   "psc_interface_config": {
-    "network_attachment": "projects/workload-447121/regions/us-central1/networkAttachments/lookermcp",
+    "network_attachment": "projects/your-gcp-project-id/regions/us-central1/networkAttachments/lookermcp",
     "dns_peering_configs": [
       {
         "domain": "looker.mytest.local.",
-        "target_project": "workload-447121",
+        "target_project": "your-gcp-project-id",
         "target_network": "myvpc"
       }
     ]
