@@ -24,7 +24,7 @@ import httpx
 logging.basicConfig(level=logging.INFO)
 
 # Replace this URL with the correct endpoint for your MCP server.
-#MCP_SERVER_URL = "https://toolbox-347453361036.us-central1.run.app/mcp"
+#MCP_SERVER_URL = "https://toolbox-YOUR_PROJECT_NUMBER.us-central1.run.app/mcp"
 MCP_SERVER_URL = "https://looker.mytest.local/mcp"
 OAUTH_TOKEN_STATE_KEY = "gmail-user-id-12345"
 

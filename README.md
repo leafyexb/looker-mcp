@@ -145,6 +145,41 @@ adk deploy agent_engine \
 
 > **Note**: Update `--project`, `--region`, `--display_name`, and `--agent_engine_id` (omit `--agent_engine_id` if creating a new agent engine resource) as needed for your environment.
 
+### Registering with Gemini Enterprise
+
+Once deployed to Agent Engine, register the provisioned reasoning engine agent with your Gemini Enterprise assistant app via the Discovery Engine API:
+
+```bash
+export PROJECT_NUMBER="YOUR_PROJECT_NUMBER"
+export REASONING_ENGINE="projects/YOUR_PROJECT_NUMBER/locations/us-central1/reasoningEngines/YOUR_REASONING_ENGINE_ID"
+export DISPLAY_NAME="Looker Agent Internal"
+export DESCRIPTION="Looker's MCP Capability"
+export TOOL_DESCRIPTION="Looker's Query Engine is used to answer Ecommerce questions."
+export AS_APP="YOUR_GEMINI_ENTERPRISE_APP_ID"
+
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  -H "X-Goog-User-Project: ${PROJECT_NUMBER}" \
+https://discoveryengine.googleapis.com/v1alpha/projects/${PROJECT_NUMBER}/locations/global/collections/default_collection/engines/${AS_APP}/assistants/default_assistant/agents \
+  -d '{
+      "displayName": "'"${DISPLAY_NAME}"'",
+      "description": "'"${DESCRIPTION}"'",
+      "adk_agent_definition": {
+        "tool_settings": {
+          "tool_description": "'"${TOOL_DESCRIPTION}"'"
+        },
+        "provisioned_reasoning_engine": {
+          "reasoning_engine":
+            "'"${REASONING_ENGINE}"'"
+        }
+      }
+  }'
+```
+
+> **Note**: Update `PROJECT_NUMBER`, `REASONING_ENGINE`, `DISPLAY_NAME`, `DESCRIPTION`, `TOOL_DESCRIPTION`, and `AS_APP` with your environment values.
+
+
 
 ---
 
