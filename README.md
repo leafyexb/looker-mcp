@@ -129,11 +129,22 @@ python looker-agent-email2/agent.py
 ```
 
 ### Deploying to Vertex AI Agent Engine
-Deploy the agent using the ADK CLI:
+Deploy the agent to Vertex AI Agent Engine using the ADK CLI with `.agent_engine_config.json`:
 
 ```bash
-adk deploy looker-agent-email2/agent.py
+export PROJECT_ID="workload-447121"
+
+adk deploy agent_engine \
+  --project $PROJECT_ID \
+  --region us-central1 \
+  --display_name "Leaf looker-agent Internal" \
+  --agent_engine_config_file=.agent_engine_config.json \
+  --agent_engine_id=4315902547148668928 \
+  looker-agent-email2
 ```
+
+> **Note**: Update `--project`, `--region`, `--display_name`, and `--agent_engine_id` (omit `--agent_engine_id` if creating a new agent engine resource) as needed for your environment.
+
 
 ---
 
