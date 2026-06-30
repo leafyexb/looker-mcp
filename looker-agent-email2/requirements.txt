@@ -1,0 +1,6 @@
+google-adk>=2.1.0
+google-genai
+requests
+google-cloud-aiplatform
+mcp
+litellm>=1.75.5

@@ -1,0 +1,22 @@
+# Virtual environments
+.venv/
+.venv~/
+venv/
+env/
+
+# Python cache and build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+
+# Environment variables & secrets
+.env
+*.key
+*.pem
+
+# Local SDKs and installers
+google-cloud-sdk/
+google-cloud-cli-*.tar.gz

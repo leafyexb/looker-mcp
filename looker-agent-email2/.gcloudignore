@@ -1,0 +1,18 @@
+# Ignore the Python virtual environment
+.venv/
+venv/
+env/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore local environment config
+.env
+
+# Ignore git/gcloud configs themselves
+.git/
+.gitignore
+.gcloudignore

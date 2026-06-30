@@ -1,0 +1,19 @@
+# Exclude virtual environments from ADK package
+.venv/
+venv/
+env/
+
+# Exclude python compile caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Exclude local environment configs
+.env
+
+# Exclude git/ignore files
+.git/
+.gitignore
+.gcloudignore
+.adkignore
